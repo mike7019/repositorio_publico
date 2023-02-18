@@ -1,11 +1,10 @@
 package com.advantageonlineshopping.pruebas.userinterfaces;
 
-import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.screenplay.targets.Target;
-import net.thucydides.core.annotations.DefaultUrl;
 
-@DefaultUrl("https://advantageonlineshopping.com/#/")
-public class AdvantageHomeUI extends PageObject {
+
+
+public class AdvantageHomeUI {
     public static final Target BTN_USUARIO  = Target.the("Clic Boton Usuario").locatedBy("//a[@id=\"menuUserLink\"]");
     public static final Target BTN_CREARUSUARIO  = Target.the("Clic Boton Crear Usuario").locatedBy("//a[@class=\"create-new-account ng-scope\"]");
     public static final Target TXT_NOMBRE_USUARIO = Target.the("Caja Texto Nombre Usuario").locatedBy("//input[@name=\"usernameRegisterPage\"]");
@@ -18,5 +17,8 @@ public class AdvantageHomeUI extends PageObject {
 
     public static final Target RDO_I_AGREE = Target.the("Radio Aceptar Terminos").locatedBy("//input[@name=\"i_agree\"]");
     public static final Target BTN_REGISTRAR = Target.the("Boton Registrar").locatedBy("//button[@id=\"register_btnundefined\"]");
+
+    public static final Target TXT_VALIDAR = Target.the("Boton Registrar")
+            .locatedBy("//span[@class='hi-user containMiniTitle ng-binding']");
 
 }

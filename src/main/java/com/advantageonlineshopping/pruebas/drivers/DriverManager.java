@@ -9,24 +9,25 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
-public class Drivers {
+public class DriverManager {
         public static WebDriver driver;
 
-        public static WebDriversSetup withChromeOptions() {
+        public static DriverManager withChromeOptions() {
+
             WebDriverManager.chromedriver().setup();
-            System.setProperty("webdriver.timeouts.implicitlywait", "10000");
-            System.setProperty("serenity.take.screenshots", "FOR_EACH_ACTION");
-            System.setProperty("chrome.capabilities.unexpectedAlertBehavior", "ignore");
+//            System.setProperty("webdriver.timeouts.implicitlywait", "10000");
+//            System.setProperty("serenity.take.screenshots", "FOR_EACH_ACTION");
+//            System.setProperty("chrome.capabilities.unexpectedAlertBehavior", "ignore");
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--start-maximized");
             options.addArguments("--allow-running-insecure-content --disable-popup-blocking --disable-dev-shm-usage");
             options.addArguments("--disable-infobars --test-type --disable-extensions --disable-translate");
             options.addArguments("--ignore-certificate-errors --incognito --disable-gpu --no-sandbox --disable-download-notification");
             driver = new ChromeDriver(options);
-            return new WebDriversSetup();
+            return new DriverManager();
         }
 
-        public static WebDriversSetup withFirefoxOptions() {
+        public static DriverManager withFirefoxOptions() {
             WebDriverManager.firefoxdriver().setup();
             System.setProperty("webdriver.driver", "Firefox");
             System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
@@ -39,17 +40,17 @@ public class Drivers {
             options.addArguments("--disable-infobars --test-type --disable-extensions --disable-translate");
             options.addArguments("--ignore-certificate-errors --incognito --disable-gpu --no-sandbox --disable-download-notification");
             driver = new FirefoxDriver(options);
-            return new WebDriversSetup();
+            return new DriverManager();
         }
 
-        public static WebDriversSetup withEdgeOptions() {
+        public static DriverManager withEdgeOptions() {
             WebDriverManager.edgedriver().setup();
             System.setProperty("webdriver.timeouts.implicitlywait", "10000");
             System.setProperty("serenity.take.screenshots", "FOR_EACH_ACTION");
             System.setProperty("gecko.capabilities.unexpectedAlertBehavior", "ignore");
             EdgeOptions options = new EdgeOptions();
             driver = new EdgeDriver();
-            return new WebDriversSetup();
+            return new DriverManager();
         }
 
         public static WebDriver on(String url) {
@@ -62,5 +63,3 @@ public class Drivers {
             return driver;
         }
     }
-
-}
