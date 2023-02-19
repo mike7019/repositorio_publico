@@ -2,9 +2,16 @@ package com.advantageonlineshopping.pruebas.models;
 
 public class DatosDeUsuario {
     String usuario;
-    String contrasena;
     String correo;
-    String verCorreo;
+    String contrasena;
+    String verContrasena;
+
+    public DatosDeUsuario(String usuario, String correo, String contrasena, String verContrasena) {
+        this.usuario = usuario;
+        this.correo = correo;
+        this.contrasena = contrasena;
+        this.verContrasena = verContrasena;
+    }
 
     public String getUsuario() {
         return usuario;
@@ -12,14 +19,6 @@ public class DatosDeUsuario {
 
     public void setUsuario(String usuario) {
         this.usuario = usuario;
-    }
-
-    public String getContrasena() {
-        return contrasena;
-    }
-
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
     }
 
     public String getCorreo() {
@@ -30,20 +29,19 @@ public class DatosDeUsuario {
         this.correo = correo;
     }
 
-    public String getVerCorreo() {
-        return verCorreo;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setVerCorreo(String verCorreo) {
-        this.verCorreo = verCorreo;
-    }
-
-    public DatosDeUsuario(String usuario, String contrasena, String correo, String verCorreo) {
-
-
-        this.usuario = usuario;
+    public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
-        this.correo = correo;
-        this.verCorreo = verCorreo;
+    }
+
+    public String getVerContrasena() {
+        return verContrasena;
+    }
+
+    public void setVerContrasena(String verContrasena) {
+        this.verContrasena = verContrasena;
     }
 }

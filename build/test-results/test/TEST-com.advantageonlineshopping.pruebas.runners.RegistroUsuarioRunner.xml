@@ -2,36 +2,9 @@
 <testsuite name="com.advantageonlineshopping.pruebas.runners.RegistroUsuarioRunner" tests="0" skipped="0" failures="0" errors="0" timestamp="1970-01-01T00:00:00" hostname="DESKTOP-STS3HQI" time="0.0">
   <properties/>
   <system-out><![CDATA[
-?[31mFailed scenarios:?[0m
-?[31msrc/test/resources/features/RegistroUsuario.feature:12 ?[0m# Escenario: Registro Usuario Exitoso
-
-1 Scenarios (?[31m1 failed?[0m)
-3 Steps (?[31m1 failed?[0m, ?[36m1 skipped?[0m, ?[32m1 passed?[0m)
-0m8,073s
-
-java.lang.IllegalArgumentException: Superclass has no null constructors but no arguments were given
-	at net.sf.cglib.proxy.Enhancer.emitConstructors(Enhancer.java:931)
-	at net.sf.cglib.proxy.Enhancer.generateClass(Enhancer.java:631)
-	at net.sf.cglib.core.DefaultGeneratorStrategy.generate(DefaultGeneratorStrategy.java:25)
-	at net.sf.cglib.core.AbstractClassGenerator.generate(AbstractClassGenerator.java:332)
-	at net.sf.cglib.proxy.Enhancer.generate(Enhancer.java:492)
-	at net.sf.cglib.core.AbstractClassGenerator$ClassLoaderData$3.apply(AbstractClassGenerator.java:96)
-	at net.sf.cglib.core.AbstractClassGenerator$ClassLoaderData$3.apply(AbstractClassGenerator.java:94)
-	at net.sf.cglib.core.internal.LoadingCache$2.call(LoadingCache.java:54)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at net.sf.cglib.core.internal.LoadingCache.createEntry(LoadingCache.java:61)
-	at net.sf.cglib.core.internal.LoadingCache.get(LoadingCache.java:34)
-	at net.sf.cglib.core.AbstractClassGenerator$ClassLoaderData.get(AbstractClassGenerator.java:119)
-	at net.sf.cglib.core.AbstractClassGenerator.create(AbstractClassGenerator.java:294)
-	at net.sf.cglib.proxy.Enhancer.createHelper(Enhancer.java:480)
-	at net.sf.cglib.proxy.Enhancer.create(Enhancer.java:305)
-	at net.thucydides.core.steps.StepFactory.createProxyStepLibrary(StepFactory.java:207)
-	at net.thucydides.core.steps.StepFactory.instantiateUniqueStepLibraryFor(StepFactory.java:179)
-	at net.thucydides.core.steps.StepFactory.getUniqueStepLibraryFor(StepFactory.java:115)
-	at net.serenitybdd.screenplay.Tasks.instrumented(Tasks.java:12)
-	at com.advantageonlineshopping.pruebas.tasks.IngresarDatos.inicioSesion(IngresarDatos.java:46)
-	at com.advantageonlineshopping.pruebas.stepdefinition.RegistroUsuarioStepDefinition.llenaSusDatos(RegistroUsuarioStepDefinition.java:42)
-	at ?.llena sus datos(src/test/resources/features/RegistroUsuario.feature:6)
+1 Scenarios (?[32m1 passed?[0m)
+3 Steps (?[32m3 passed?[0m)
+0m16,594s
 
 ]]></system-out>
   <system-err><![CDATA[SLF4J: No SLF4J providers were found.

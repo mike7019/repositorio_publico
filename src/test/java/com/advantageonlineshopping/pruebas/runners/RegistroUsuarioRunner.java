@@ -2,7 +2,10 @@ package com.advantageonlineshopping.pruebas.runners;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.SnippetType;
+import cucumber.api.java.Before;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
+import net.serenitybdd.screenplay.actors.OnStage;
+import net.serenitybdd.screenplay.actors.OnlineCast;
 import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
@@ -12,4 +15,6 @@ import org.junit.runner.RunWith;
         snippets = SnippetType.CAMELCASE)
 
 public class RegistroUsuarioRunner {
+
+
 }

@@ -1,53 +1,54 @@
 package com.advantageonlineshopping.pruebas.tasks;
 
 
-import com.advantageonlineshopping.pruebas.utils.DatosExcelListas;
+import net.serenitybdd.core.steps.Instrumented;
 import net.serenitybdd.screenplay.Actor;
-import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.actions.JavaScriptClick;
 import net.serenitybdd.screenplay.actions.Scroll;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Map;
+import net.serenitybdd.screenplay.waits.WaitUntil;
+
 import static com.advantageonlineshopping.pruebas.userinterfaces.AdvantageHomeUI.*;
-import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isEnabled;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class IngresarDatos implements Task {
-     String usuario;
-     String contrasena;
-     String correo;
-     String verCorreo;
+    private String usuario;
 
-    public IngresarDatos(String usuario, String contrasena, String correo, String verCorreo) {
-        this.usuario = usuario;
-        this.contrasena = contrasena;
-        this.correo = correo;
-        this.verCorreo = verCorreo;
-    }
-
+    private String correo;
+    private String contrasena;
+    private String verContrasena;
     @Override
     public <T extends Actor> void performAs(T actor) {
-            actor.attemptsTo(
-                    Click.on(BTN_USUARIO),
-                    Click.on(BTN_CREARUSUARIO),
-                    Enter.theValue(usuario).into(TXT_NOMBRE_USUARIO),
-                    Enter.theValue(contrasena).into(TXT_EMAIL),
-                    Enter.theValue(correo).into(TXT_CLAVE),
-                    Enter.theValue(verCorreo).into(TXT_CONFIRMAR_CLAVE),
-                    Scroll.to(TXT_NOMBRE),
-                    Scroll.to(TXT_DIRECCION),
-                    Click.on(RDO_I_AGREE),
-                    Click.on(BTN_REGISTRAR)
-            );
+        actor.attemptsTo(
+                WaitUntil.the(BTN_USUARIO, isVisible()).forNoMoreThan(10).seconds(),
+                JavaScriptClick.on(BTN_USUARIO),
+                WaitUntil.the(BTN_CREARUSUARIO, isEnabled()).forNoMoreThan(10).seconds(),
+                JavaScriptClick.on(BTN_CREARUSUARIO),
+                Enter.theValue(usuario).into(TXT_NOMBRE_USUARIO),
+                Enter.theValue(correo).into(TXT_EMAIL),
+                Enter.theValue(contrasena).into(TXT_CLAVE),
+                Enter.theValue(verContrasena).into(TXT_CONFIRMAR_CLAVE),
+                Scroll.to(TXT_NOMBRE),
+                Scroll.to(TXT_DIRECCION),
+                Click.on(RDO_I_AGREE),
+                Click.on(BTN_REGISTRAR)
+        );
     }
+
     public static IngresarDatos inicioSesion() {
-        return instrumented(IngresarDatos.class);
+        return Instrumented.instanceOf(IngresarDatos.class).withProperties();
     }
 
     public IngresarDatos conUsuario(String usuario) {
         this.usuario = usuario;
+        return this;
+    }
+
+    public IngresarDatos yCorreo(String correo) {
+        this.correo = correo;
         return this;
     }
 
@@ -57,13 +58,10 @@ public class IngresarDatos implements Task {
         return this;
     }
 
-    public IngresarDatos yCorreo(String correo) {
-        this.correo = correo;
-        return this;
-    }
 
-    public IngresarDatos yVerCorreo(String verCorreo) {
-        this.verCorreo = verCorreo;
+
+    public IngresarDatos yVerContrasena(String verContrasena) {
+        this.verContrasena = verContrasena;
         return this;
     }
 }
